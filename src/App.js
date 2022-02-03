@@ -65,6 +65,9 @@ function App() {
             use the goblin form state to make a goblin object and to display it. 
             This will let the user see the current form state 
           */
+          name: goblinFormName,
+          hp: goblinFormHP,
+          color: goblinFormColor
         }}/>
       </div>
       <div className='goblin-filter quarter'>
@@ -84,9 +87,16 @@ function App() {
           goblinFormHP, 
           setGoblinFormHP,
         */
+        submitGoblin={submitGoblin}
+        goblinFormName={goblinFormName}
+        setGoblinFormName={setGoblinFormName}
+        goblinFormColor={goblinFormColor}
+        setGoblinFormColor={setGoblinFormColor}
+        goblinFormHP={goblinFormHP}
+        setGoblinFormHP={setGoblinFormHP}
       />
       <GoblinList 
-        goblins={[]} // this takes in an array of goblins. If the filteredGoblins has a length, use that array. Otherwise, use the allGoblins array 
+        goblins={[filteredGoblins.length ? filteredGoblins : allGoblins]} // this takes in an array of goblins. If the filteredGoblins has a length, use that array. Otherwise, use the allGoblins array 
         handleDeleteGoblin={handleDeleteGoblin} // note that the goblin list has access to the ability to delete
       />
     </div>
